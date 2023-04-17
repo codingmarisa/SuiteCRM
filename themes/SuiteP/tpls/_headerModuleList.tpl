@@ -164,7 +164,7 @@
             {if $USE_GROUP_TABS}
                 <ul class="nav navbar-nav">
                     <li class="navbar-brand-container">
-                            <a class="navbar-brand with-home-icon suitepicon suitepicon-action-home" href="index.php?module=Home&action=index"></a>
+                            <a class="navbar-brand with-home-icon suitepicon suitepicon-action-home" href="index.php?module=Home&action=index" aria-label="Home"></a>
                     </li>
                     {assign var="groupSelected" value=false}
                     {foreach from=$moduleTopMenu item=module key=name name=moduleList}
@@ -287,7 +287,7 @@
                         {capture name=extraparams assign=extraparams}parentTab={$group}{/capture}
                         <li class="topnav {if $smarty.foreach.groupList.last}all{/if}">
                             <span class="notCurrentTabLeft">&nbsp;</span><span class="notCurrentTab">
-                            <a href="#" id="grouptab_{$smarty.foreach.groupList.index}" class="dropdown-toggle grouptab">{$group}</a>
+                            <a href="#" id="grouptab_{$smarty.foreach.groupList.index}" class="dropdown-toggle grouptab" data-toggle="dropdown" aria-expanded="false">{$group}</a>
                             <span class="notCurrentTabRight">&nbsp;</span>
                             <ul class="dropdown-menu" role="menu" {if $smarty.foreach.groupList.last} class="All"{/if}>
                                 {foreach from=$modules.modules item=module key=modulekey}
@@ -492,7 +492,7 @@
         <div class="mobile-bar">
             <ul id="toolbar" class="toolbar">
                 <li id="quickcreatetop" class="create dropdown nav navbar-nav quickcreatetop">
-                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         {$APP.LBL_CREATE_BUTTON_LABEL}<span class="suitepicon suitepicon-action-caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -506,7 +506,7 @@
                     </ul>
                 </li>
                 <li id="" class="dropdown nav navbar-nav navbar-search">
-                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true">
+                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true" aria-label="Toggle search input">
                     </button>
                     <div class="dropdown-menu" role="menu" aria-labelledby="searchbutton">
                         <form id="searchformdropdown" class="searchformdropdown" name='UnifiedSearch' action='index.php'
@@ -519,7 +519,7 @@
                                 <input type="text" class="form-control query_string" name="query_string" id="query_string"
                                        placeholder="{$APP.LBL_SEARCH_BUTTON}..." value="{$SEARCH}"/>
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search" aria-label"Search"></button>
                             </span>
                             </div>
                         </form>
@@ -527,7 +527,7 @@
                 </li>
                 <li id="desktop_notifications" class="dropdown nav navbar-nav desktop_notifications">
                     <button class="alertsButton btn dropdown-toggle suitepicon suitepicon-action-alerts" data-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false" aria-label="Desktop notifications">
                         <span class="alert_count hidden">0</span>
                     </button>
                     <div id="alerts" class="dropdown-menu" role="menu">{$APP.LBL_EMAIL_ERROR_VIEW_RAW_SOURCE}</div>
@@ -543,14 +543,14 @@
                             <input type="text" class="form-control query_string " name="query_string" id="query_string"
                                    placeholder="{$APP.LBL_SEARCH}..." value="{$SEARCH}"/>
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search aria-label"Search"></button>
                     </span>
                         </div>
                     </form>
                 </li>
                 <li id="globalLinks" class="dropdown nav navbar-nav globalLinks-mobile">
 
-                    <button id="usermenucollapsed" class="dropdown-toggle btn btn-default usermenucollapsed" data-toggle="dropdown" aria-expanded="true">
+                    <button id="usermenucollapsed" class="dropdown-toggle btn btn-default usermenucollapsed" data-toggle="dropdown" aria-expanded="true" aria-label="User menu">
                         <span class="suitepicon suitepicon-action-user-small"></span>
                     </button>
                     <ul class="dropdown-menu user-dropdown user-menu" role="menu" aria-labelledby="dropdownMenu2">
@@ -581,7 +581,7 @@
         <div class="tablet-bar">
             <ul id="toolbar" class="toolbar">
                 <li id="quickcreatetop" class="create dropdown nav navbar-nav quickcreatetop">
-                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         {$APP.LBL_CREATE_BUTTON_LABEL}<span class="suitepicon suitepicon-action-caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -595,7 +595,7 @@
                     </ul>
                 </li>
                 <li id="" class="dropdown nav navbar-nav navbar-search">
-                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true">
+                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true" aria-label="Toggle search input">
                     </button>
                     <div class="dropdown-menu" role="menu" aria-labelledby="searchbutton">
                         <form id="searchformdropdown" class="searchformdropdown" name='UnifiedSearch' action='index.php'
@@ -608,7 +608,7 @@
                                 <input type="text" class="form-control query_string" name="query_string" id="query_string"
                                        placeholder="{$APP.LBL_SEARCH}..." value="{$SEARCH}"/>
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search aria-label"Search"></button>
                             </span>
                             </div>
                         </form>
@@ -625,14 +625,14 @@
                             <input type="text" class="form-control query_string" name="query_string" id="query_string"
                                    placeholder="{$APP.LBL_SEARCH}..." value="{$SEARCH}"/>
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search aria-label"Search"></button>
                     </span>
                         </div>
                     </form>
                 </li>
                 <li id="desktop_notifications" class="dropdown nav navbar-nav desktop_notifications">
                     <button class="alertsButton btn dropdown-toggle suitepicon suitepicon-action-alerts" data-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false" aria-label="Desktop notifications">
                         <span class="alert_count hidden">0</span>
                     </button>
                     <div id="alerts" class="dropdown-menu" role="menu">{$APP.LBL_EMAIL_ERROR_VIEW_RAW_SOURCE}</div>
@@ -640,7 +640,7 @@
                 <li id="globalLinks" class="dropdown nav navbar-nav globalLinks-mobile">
 
                     <button id="usermenucollapsed" class="dropdown-toggle btn btn-default usermenucollapsed" data-toggle="dropdown"
-                            aria-expanded="true">
+                            aria-expanded="true" aria-label="User menu">
                         <span class="suitepicon suitepicon-action-current-user"></span>
                     </button>
                     <ul class="dropdown-menu user-dropdown user-menu" role="menu" aria-labelledby="dropdownMenu2">
@@ -671,7 +671,7 @@
         <div class="desktop-bar">
             <ul id="toolbar" class="toolbar">
                 <li id="quickcreatetop" class="create dropdown nav navbar-nav quickcreatetop">
-                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         {$APP.LBL_CREATE_BUTTON_LABEL}<span class="suitepicon suitepicon-action-caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -685,7 +685,7 @@
                     </ul>
                 </li>
                 <li id="" class="dropdown nav navbar-nav navbar-search">
-                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true">
+                    <button id="searchbutton" class="dropdown-toggle btn btn-default searchbutton suitepicon suitepicon-action-search" data-toggle="dropdown" aria-expanded="true" aria-label="Toggle search input">
                     </button>
                     <div class="dropdown-menu" role="menu" aria-labelledby="searchbutton">
                         <form id="searchformdropdown" class="searchformdropdown" name='UnifiedSearch' action='index.php'
@@ -698,7 +698,7 @@
                                 <input type="text" class="form-control query_string" name="query_string" id="query_string"
                                        placeholder="{$APP.LBL_SEARCH}..." value="{$SEARCH}"/>
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                                <button type="submit" class="btn btn-default suitepicon suitepicon-action-search" aria-label="Search"></button>
                             </span>
                             </div>
                         </form>
@@ -715,20 +715,20 @@
                             <input type="text" class="form-control query_string" name="query_string" id="query_string"
                                    placeholder="{$APP.LBL_SEARCH}..." value="{$SEARCH}"/>
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search"></button>
+                        <button type="submit" class="btn btn-default suitepicon suitepicon-action-search aria-label"Search"></button>
                     </span>
                         </div>
                     </form>
                 </li>
                 <li id="desktop_notifications" class="dropdown nav navbar-nav desktop_notifications">
                     <button class="alertsButton btn dropdown-toggle suitepicon suitepicon-action-alerts" data-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false" aria-label="Desktop notifications">
                         <span class="alert_count hidden">0</span>
                     </button>
                     <div id="alerts" class="dropdown-menu" role="menu">{$APP.LBL_EMAIL_ERROR_VIEW_RAW_SOURCE}</div>
                 </li>
                 <li id="globalLinks" class="dropdown nav navbar-nav globalLinks-desktop">
-                    <button id="with-label" class="dropdown-toggle user-menu-button" title="{$CURRENT_USER}"data-toggle="dropdown" aria-expanded="true">
+                    <button id="with-label" class="dropdown-toggle user-menu-button" title="{$CURRENT_USER}"data-toggle="dropdown" aria-expanded="true" aria-label="User menu">
                         <span class="suitepicon suitepicon-action-current-user"></span>
                         <span class="globallabel-user">{$CURRENT_USER}</span>
                         <span class="suitepicon suitepicon-action-caret"></span>
